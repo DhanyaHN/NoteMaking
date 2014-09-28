@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+      <style type="text/css">
+    .div1 {
+        overflow:
+        white-space: nowrap; 
+        width: 12em; 
+        overflow: hidden;
+        
+        border: 1px solid #000000;
+}
+  </style>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link  rel="stylesheet" type="text/css" href="css/index1.css"></link> 
+        <link  rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css"></link>
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/flowtype.js"></script>
+        <script type="text/javascript" src="js/jquery.gridster.min.js"></script>
+        <script src="js/jquery.mobile-1.4.2.min.js"></script>
+        <style type="text/css"> 
+            .mainBody {
+              background-color: #000000;
+              position: absolute;
+              top: 0px;
+              bottom: 0px;
+              width:100%;
+              display: none;
+          }
+        </style>
+        <title>Hello World</title>
+    </head>
+    <body>
+         <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div class="div1" id="my" data-row="1" data-col="1" data-sizex="1" data-sizey="1"></div></li>
+
+                <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"><div class="div1" data-row="2" data-col="1" data-sizex="1" data-sizey="1"></div></li>
+
+                <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"><div class="div1" data-row="3" data-col="1" data-sizex="1" data-sizey="1"></div></li>
+
+                <li data-row="1" data-col="2" data-sizex="1" data-sizey="1"><div class="div1" data-row="1" data-col="2" data-sizex="1" data-sizey="1"></div></li>
+
+                <li data-row="2" data-col="2" data-sizex="1" data-sizey="2"><div class="div1" data-row="2" data-col="2" data-sizex="1" data-sizey="2"></div></li>
+
+                <li data-row="1" data-col="3" data-sizex="1" data-sizey="3"><div class="div1" data-row="1" data-col="3" data-sizex="1" data-sizey="3"></div></li>
+                
+                <li data-row="2" data-col="4" data-sizex="1" data-sizey="1"><div class="div1" data-row="2" data-col="4" data-sizex="1" data-sizey="1"></div></li>
+                <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"><div class="div1" data-row="3" data-col="4" data-sizex="1" data-sizey="1"></div></li>
+                
+               <!-- <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+                <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+                <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+                <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>-->
+            </ul>
+        </div>
+        <!--<div id = "showdiv" class="mainBody"><span id ="showdivtext" style="display: inline-block; font-size: 50px;"></span><input type="button" value="Done" onclick="disp_none(event);"/></div>-->
+        <div id = "showdiv" class="mainBody"><input class="inp" id = "showdivtext" style="display: inline-block; font-size: 50px;"></input><input id= "done" type="button" value="Done" /></div>
+        <script type="text/javascript">
+          var gridster;
+
+          $(function(){
+
+            gridster = $(".gridster ul").gridster({
+              widget_base_dimensions: [100, 55],
+              widget_margins: [5, 5],
+              helper: 'clone',
+              resize: {
+                enabled: false
+              }
+            }).data('gridster');
+
+          });
+          
+   //         $( "ul > li > div" ).css( "height", "55px" );
+          $( "ul > li > div" ).css("background-color", "#000");
+          $( "ul > li > div" ).bind("click", myfunc);
+          //$("li div").bind("keypress",keypressed);
+         function myfunc(event) {
+            jheight = $(event.target).height();
+            jwidth = $(event.target).width();
+            jtarget = event.target;
+            $(jtarget).off('click', resize)
+            //$("body").off('keypress', keypressed)
+            $("#show_div").css("background-color", "#000000");
+            /*$("#show_div").css("height", "100%");
+            $("#show_div").css("width", "100%");*/
+            $(".mainBody").css("display", "block");
+            $("ul > li > div").css("color", "white");
+            document.getElementById("showdivtext").focus();
+            document.getElementById("showdivtext").value = event.target.innerHTML;
+           // $("body").bind("keypress", {tar: jtarget}, keypressed);
+            $("#done").bind("click",{tar:jtarget},disp_none);
+            $(jtarget).bind("click", {tar: jtarget, width: jwidth, height:jheight}, resize);
+         }
+         function disp_none(event)
+         {
+            event.data.tar.innerHTML = document.getElementById("showdivtext").value;
+            $("#showdiv").css("display", "none");
+
+         }
+         function resize(event)
+         {
+            $(event.target).animate({height:event.data.height, width: event.data.width}, 500);
+         }/*
+         function keypressed(event)
+         {
+            //var x = String.fromCharCode(event.charCode);
+            //event.data.tar.innerHTML += x;
+            //document.getElementById("showdivtext").value = event.data.tar.innerHTML;
+         }*/
+        </script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+    <style type="text/css">
+    
+    </style>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link  rel="stylesheet" type="text/css" href="css/index1.css"></link> 
+        <link  rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css"></link>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/flowtype.js"></script>
+        <script type="text/javascript" src="js/jquery.gridster.min.js"></script>
+        <title>Hello World</title>
+    </head>
+    <body>
+    	<div id = "divAddnote"><input type="text" id="textAddnote" placeholder = "Add note"></input></div>
+         <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                	<div class="div1" id="my" data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                		<div class="contents">Disp</div>
+                		<div class="innDiv"> <span><img class="img" height = "20px" width="30px" src="img/add-icon.png"></img></span></span></div>
+               		</div>
+                </li>
+
+                <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+                	<div class="div1" data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+                		<div class="innDiv"> Heeloo</div>	
+               		</div>
+                </li>
+
+                <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+                	<div class="div1" data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+                		<div class="innDiv"> Heeloo</div>		
+                	</div>
+                </li>
+
+                <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+                	<div class="div1" data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+                		<div class="innDiv"> Heeloo</div>		
+                	</div>
+                </li>
+
+                <li data-row="2" data-col="2" data-sizex="1" data-sizey="2">
+                	<div class="div1" data-row="2" data-col="2" data-sizex="1" data-sizey="2">
+                		<div class="innDiv"> Heeloo</div>		
+                	</div>
+                </li>
+
+                <li data-row="1" data-col="3" data-sizex="1" data-sizey="3">
+                	<div class="div1" data-row="1" data-col="3" data-sizex="1" data-sizey="3">
+                		<div class="innDiv"> Heeloo</div>		
+                	</div>
+                </li>
+                
+                <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+                	<div class="div1" data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+                		<div class="innDiv"> Heeloo</div>		
+                	</div>
+                </li>
+
+                <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+	                <div class="div1" data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+	                	<div class="innDiv"> Heeloo</div>	
+	                </div>
+                </li>
+                
+               <!-- <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+                <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+                <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+                <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>-->
+            </ul>
+        </div>
+        <!--<div id = "showdiv" class="mainBody"><span id ="showdivtext" style="display: inline-block; font-size: 50px;"></span><input type="button" value="Done" onclick="disp_none(event);"/></div>-->
+        <div id = "showdiv" class="mainBody">
+        	<input class="textAdnote" id = "showdivtext" style="display: inline-block; font-size: 50px;">
+        	</input>
+        	<p>
+        	<input id= "done" type="button" value="Done" />
+        </div>
+        <script type="text/javascript">
+          var gridster;
+
+          $(function(){
+
+            gridster = $(".gridster ul").gridster({
+              widget_base_dimensions: [100, 55],
+              widget_margins: [5, 5],
+              helper: 'clone',
+              resize: {
+                enabled: false
+              }
+            }).data('gridster');
+
+          });
+          $(".img").bind("click", showAlert);
+          function showAlert(event)
+          {
+          		/*var event = event || window.event;
+          		alert("img clicked");
+          		event.stopPropagation();*/
+          		alert(window.event.target);
+          		if (event){
+			       event.stopPropagation();
+			   }
+			   else if(window.event){
+			      window.event.cancelBubble=true;
+			   }
+			   alert("img clicked");
+
+          }
+   //         $( "ul > li > div" ).css( "height", "55px" );
+          $( "ul > li > div" ).css("background-color", "#000");
+          $( "ul > li > div" ).bind("click", myfunc);
+          $(".div1").bind("mouseover", showMenu);
+          $(".div1").bind("mouseout", hideMenu);
+          //$("li div").bind("keypress",keypressed);
+          function showMenu(event)
+          {
+          	$(this).children('.innDiv').css("display", "block");
+          }
+          function hideMenu(event)
+          {
+          	$(this).children(".innDiv").css("display", "none");
+          }
+         function myfunc(event) {
+            jheight = $(event.target).height();
+            jwidth = $(event.target).width();
+            jtarget = event.target;
+            $(jtarget).off('click', resize)
+            $("#show_div").css("background-color", "#000000");
+            $(".mainBody").css("display", "block");
+            $("ul > li > div").css("color", "white");
+            document.getElementById("showdivtext").focus();
+            document.getElementById("showdivtext").value = $(this).children().first().html();
+           // $("body").bind("keypress", {tar: jtarget}, keypressed);
+            $("#done").bind("click",{tar:jtarget},disp_none);
+            $(jtarget).bind("click", {tar: jtarget, width: jwidth, height:jheight}, resize);
+
+         }
+         function disp_none(event)
+         {
+         	// unbinds the click event on the target
+         	$("#done").unbind("click");
+         	//document.getElementById("showdivtext").value;
+            $(event.data.tar).children(".contents").html($("#showdivtext").val());
+            $("#showdiv").css("display", "none");
+         }
+         function resize(event)
+         {
+            $(event.target).animate({height:event.data.height, width: event.data.width}, 2000);
+         }/*
+         function keypressed(event)
+         {
+            //var x = String.fromCharCode(event.charCode);
+            //event.data.tar.innerHTML += x;
+            //document.getElementById("showdivtext").value = event.data.tar.innerHTML;
+         }*/
+        </script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>

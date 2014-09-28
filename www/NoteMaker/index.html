@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+    <head >
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title >Simple Notes</title >
+        <link  rel="stylesheet" type="text/css" href="css/index.css"></link> 
+        <link  rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css"></link>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.gridster.min.js"></script>
+    </head >
+    <body >
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li>
+                <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
+                <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+
+                <li data-row="1" data-col="2" data-sizex="1" data-sizey="1"></li>
+                <li data-row="2" data-col="2" data-sizex="1" data-sizey="2"></li>
+
+                <li data-row="1" data-col="3" data-sizex="1" data-sizey="3"></li>
+                
+                <li data-row="2" data-col="4" data-sizex="1" data-sizey="1"></li>
+                <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+
+                <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+                <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+
+                <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+                <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+          var gridster;
+
+          $(function(){
+
+            gridster = $(".gridster ul").gridster({
+              widget_base_dimensions: [100, 55],
+              widget_margins: [5, 5],
+              helper: 'clone',
+              resize: {
+                enabled: false
+              }
+            }).data('gridster');
+
+          });
+          
+          $("li").bind("click",myfunc);
+            
+         function myfunc() {
+             alert("Clicked");
+         }
+        </script>
+    </body >
+</html >
